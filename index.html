@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Cripto en vivo: precios en tiempo real (Binance)</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!-- TÍTULO (Rúbrica 20%) -->
+  <h1 id="titulo">Cripto en vivo: cómo fluctúan los precios minuto a minuto | Fuente Binance</h1>
+
+  <!-- CONTROLES -->
+  <div id="controles">
+    <label id="labelActivo" for="menuMonedas">Selecciona un activo:</label>
+    <select name="monedas" id="menuMonedas">
+      <option value="btcusdt" selected="selected">Bitcoin (BTC/USDT)</option>
+      <option value="ethusdt">Ethereum (ETH/USDT)</option>
+      <option value="ltcusdt">Litecoin (LTC/USDT)</option>
+      <option value="solusdt">Solana (SOL/USDT)</option>
+    </select>
+  </div>
+
+  <!-- MÓDULO 1 (Rúbrica 25%): evidencia de tiempo real -->
+  <div id="modulo1">
+    <div class="kpi">
+      <div class="kpi-title">Estado</div>
+      <div class="kpi-value" id="status">Conectando...</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Hora local</div>
+      <div class="kpi-value" id="now">--:--:--</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Última actualización</div>
+      <div class="kpi-value" id="lastUpdate">--:--:--</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-title">Mensajes recibidos</div>
+      <div class="kpi-value" id="msgCount">0</div>
+    </div>
+
+    <p class="nota-rt">
+      Los valores se actualizan en tiempo real desde un feed de mercado (Binance). Si el contador aumenta, la señal está
+      llegando en vivo.
+    </p>
+
+    <p id="contexto1"></p>
+    <p id="contexto2"></p>
+  </div>
+
+  <!-- MÓDULO 2 (Rúbrica 30%): visualización D3 -->
+  <div id="modulo2">
+    <h2 id="subtituloGrafica">Fluctuación del precio (últimos ~60 puntos)</h2>
+    <div class="chart-note">Eje X: hora local • Eje Y: precio en USDT</div>
+    <div id="chart"></div>
+  </div>
+
+  <!-- TEXTO ADICIONAL (Rúbrica 25%) -->
+  <div id="descripcion">
+    <p>
+      Este tablero presenta precios de criptomonedas en tiempo real, mostrando cómo los valores cambian continuamente a
+      medida que el mercado se mueve. A diferencia de reportes estáticos o históricos, aquí cada actualización llega en
+      vivo desde un feed de mercado y modifica el gráfico de forma inmediata.
+    </p>
+    <p>
+      La visualización está pensada para ayudar a cualquier persona, incluso sin experiencia en datos o finanzas, a
+      entender la <strong>fluctuación del precio</strong>: cómo sube y baja de manera constante. El eje horizontal no
+      representa horas exactas del día, sino <strong>instantes consecutivos en segundos</strong>, es decir, cada momento
+      en el que el sistema recibe un nuevo precio. Esto permite observar el “ritmo” del mercado y comparar cómo se
+      comportan distintos activos al seleccionarlos desde el menú.
+    </p>
+  </div>
+
+  <!-- LIBRERÍAS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
